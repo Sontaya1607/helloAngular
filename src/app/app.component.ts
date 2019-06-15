@@ -14,10 +14,15 @@ export class AppComponent implements OnInit{
 
   }
 
-  ngOnInit(): void {
-    let data = {username: "Golf", feedback: "I love it"};
+  onSubmit(data) {
+    alert(JSON.stringify(data));
+    // let postData = {username: data.email, feedback: data.feedback};
     this.http.post<any>('http://localhost:3000/api', data).subscribe(result=>{
-      alert(JSON.stringify(result));
-    })
+    alert(JSON.stringify(result));
+    });
+  }
+
+  ngOnInit(): void {
+    
   }
 }
