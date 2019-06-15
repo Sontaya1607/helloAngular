@@ -1,6 +1,6 @@
 <form #feedbackForm="ngForm" (submit)="onSubmit(feedbackForm.value)">
   <div class="form-group">
-    <label for="Email">Email address</label>
+    <label for="Email">Email Address</label>
     <input ngModel name="username" type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Enter email">
   </div>
   <div class="form-group">
@@ -9,3 +9,10 @@
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<br>
+<hr>
+<br>
+<p>Feedback</p>
+<ol>
+  <li *ngFor="let item of mDataArray">{{item.username}}: <span style="color:royalblue">{{item.feedback}}</span></li>
+</ol>

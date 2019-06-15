@@ -32,12 +32,20 @@ app.post('/api', (req, res) => {
     const username = req.body.username;
 
     FeedbackModel.create(req.body, (err, doc) => {
-        if (err) res.json({result: "falied", username: username, feedback: feedback});
+        if (err) res.json({result: "falied"})
 
         res.json({result: "success", username: username, feedback: feedback})
     });
 
     //res.end("Received Feedback: " + feedback + ", Username: " + username);
+});
+
+app.get('/api', (req, res) => {
+    FeedbackModel.find((err, doc) => {
+        if(err) res.json({result: "falied"})
+
+        res.json({result: "success", data: doc});
+    });
 });
 
 app.listen(3000, () => {
